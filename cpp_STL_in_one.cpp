@@ -275,12 +275,16 @@ int main() {
 	long long int n = 12533235353;
 	long int c = __builtin_popcountll(n);	// for long long numbers only
 
-	string s = "123";
+	string s = "123";		// if in case i provided something like 231 which is in-between the permutation.
+	sort(s.begin(), s.end());	// it will start from there we need to sort to start form very begining.
 
 	do {
 		cout<<s<<endl;
-	}while(next_permutation(s.begin(), s.end()));
-	
+	} while(next_permutation(s.begin(), s.end()));		// next_permutation function prints the lexographically the next permutation availale
+
+	vector<int> v1;
+	int m = *max_element(v1.begin(), v1.end());		// finds the maximum element in vector or array something like sequence.
+	int k = *min_element(v1.begin(), v1.end());		// simillarly finds the minimum element in any sequence.
 
 	return 0;
 }

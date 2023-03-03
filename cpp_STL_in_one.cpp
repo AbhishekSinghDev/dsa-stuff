@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-
-// Pairs
+void all_containers_stl() {
+	// Pairs
 {
 	pair<int, int> p = {1, 5};
 	// cout<<p.first<<" "<<p.second<<endl; 
@@ -237,6 +236,51 @@ int main() {
 	// same as unordered_set.
 }
 
+}
+
+// comparator - helps to sort in my way
+bool comp(pair<int, int> p1, pair<int, int> p2) {
+	if(p1.second < p2.second) return true;
+	if(p1.second > p2.second) return false;
+
+	// they are same
+	if(p1.first < p2.first) return true;
+	else return false;
+}
+
+int main() {
+
+	// sort(a, a+n);	// sorts in ascending order
+	// sort(v.begin(), v.end())		// we always give second argument which is something outside the container
+
+	// descending order
+	// sort(a, a+n, greater<int>);	// here greater is an comparator (comparator is which is used to compare in my way)
+
+	vector<pair<int, int>> p = {{1, 2}, {2, 1},{4, 1}};
+
+	// Question
+	// sort it according to second element
+	// if second element is same, then sort
+	// according to first element but in descending 
+
+	sort(p.begin(), p.end(), comp);		// comp is a comparator here
+	for(int i=0; i<3; i++) {
+		cout<<p[i].first<<" "<<p[i].second<<endl;
+	}
+
+	int num = 9;
+	int cnt = __builtin_popcount(num);	// returns the number of all the set bits
+	cout<<cnt;
+
+	long long int n = 12533235353;
+	long int c = __builtin_popcountll(n);	// for long long numbers only
+
+	string s = "123";
+
+	do {
+		cout<<s<<endl;
+	}while(next_permutation(s.begin(), s.end()));
+	
 
 	return 0;
 }
